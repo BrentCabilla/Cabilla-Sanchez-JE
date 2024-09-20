@@ -52,7 +52,7 @@ class Transport:
             self.__passengers.append(passenger_type)
             self.__gas_level -= 1
         else:
-            raise ValueError
+            raise ValueError('INVALID INPUT. NOT IN DISCOUNT')
 
     def refuel(self) -> None:
         """
