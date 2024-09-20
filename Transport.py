@@ -69,7 +69,10 @@ class Transport:
 
         :return:
         """
-        
+        total = 0.0
+        for i in range(len(self.__passengers)):
+            total += self.fare(i)
+        return total
 
     def fare(self, index: int) -> float:
         """
@@ -78,6 +81,9 @@ class Transport:
         :param index: Passenger to calculate the fare.
         :return: Fare
         """
+        passenger_type = self.__passengers[index] 
+        passenger_discount = discount.get(passenger_type, 0)
+        return self.__fee * (1 - passenger_discount)
 
     def __str__(self) -> str:
         """
@@ -86,3 +92,4 @@ class Transport:
 
         :return:
         """
+        
