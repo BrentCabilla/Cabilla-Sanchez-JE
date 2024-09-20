@@ -81,9 +81,6 @@ class Transport:
         :param index: Passenger to calculate the fare.
         :return: Fare
         """
-        passenger_type = self.__passengers[index] 
-        passenger_discount = discount.get(passenger_type, 0)
-        return self.__fee * (1 - passenger_discount)
 
     def __str__(self) -> str:
         """
