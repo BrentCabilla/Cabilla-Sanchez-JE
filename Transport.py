@@ -6,32 +6,53 @@ discount = {
 
 class Transport:
 
-    def __init__(self):
+    def __init__(self, transport: str, fare: float, gas: int):
         # Complete this method
-
+        
         # Transport class has four attributes
-        self.__type = None
+        self.__type = transport
         # List of passengers
         # For example: [Student, Student, Regular]
         self.__passengers = list()
 
         # Fee for each passenger
-        self.__fee = None
+        self.__fee = fare
 
         # Integer value
         # Each passenger consumes 1 level of gas
-        self.__gas_level = None
+        self.__gas_level = gas
 
     # Create getters and setters for all attributes
+    # vehicle type
+    def get_type(self):
+        return self.__type
+    def set_type(self, transport: str):
+        self.__type = transport
 
+    #passenger
+    def get_passengers(self):
+        return self.__passengers
+    def set_passengers(self, passengers: list):
+        self.__passengers = passengers
+    
+    #gas level
+    def get_gas_level(self):
+        return self.__gas_level
+    def set_gas_level(self, gas_level: int):
+        self.__gas_level = gas_level
+
+    
     # Then complete the following methods
-
-    def add(self) -> None:
+    def add(self, passenger_type: str) -> None:
         """
             Adds a new passenger.
         :return:
         """
-        pass
+        if passenger_type in discount:
+            self.__passengers.append(passenger_type)
+            self.__gas_level -= 1
+        else:
+            raise ValueError
 
     def refuel(self) -> None:
         """
@@ -39,7 +60,8 @@ class Transport:
 
         :return:
         """
-        pass
+        if self.__gas_level == 0:
+            self.__gas_level = len(self.__passengers)
 
     def totalFare(self) -> float:
         """
@@ -47,7 +69,7 @@ class Transport:
 
         :return:
         """
-        pass
+        
 
     def fare(self, index: int) -> float:
         """
@@ -56,7 +78,6 @@ class Transport:
         :param index: Passenger to calculate the fare.
         :return: Fare
         """
-        pass
 
     def __str__(self) -> str:
         """
@@ -65,4 +86,3 @@ class Transport:
 
         :return:
         """
-        pass
