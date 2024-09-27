@@ -91,4 +91,17 @@ class Transport:
 
         :return:
         """
+        summary = {
+            "Student": 0,
+            "Regular": 0,
+            "Senior": 0
+        }
+        for passenger in self.__passengers:
+            summary[passenger] += 1
+        total_fare = self.totalFare()
+        refuel_count = (len(self.__passengers) - 1) // self.__gas_level + 1 if self.__gas_level != 0 else 1
         
+        return (f"Transport Type: {self.__type}\n"
+                f"Passengers Summary: {summary}\n"
+                f"Total Fare: {total_fare}\n"
+                f"Refuel Count: {refuel_count}")
