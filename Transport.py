@@ -102,6 +102,8 @@ class Transport:
         refuel_count = (len(self.__passengers) - 1) // self.__gas_level + 1 if self.__gas_level != 0 else 1
         
         return (f"Transport Type: {self.__type}\n"
-                f"Passengers Summary: {summary}\n"
+                f"Total Passengers - Regular: {summary['Regular']}\n"
+                f"Total Passengers - Student: {summary['Student']}\n"
+                f"Total Passengers - Senior: {summary['Senior']}\n"
                 f"Total Fare: {total_fare}\n"
                 f"Refuel Count: {refuel_count}")
