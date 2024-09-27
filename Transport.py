@@ -71,7 +71,7 @@ class Transport:
         """
         total = 0.0
         for i in range(len(self.__passengers)):
-            total += self.fare(i)
+            total += self.fare(i) * (discount[i] - 1)
         return total
 
     def fare(self, index: int) -> float:
