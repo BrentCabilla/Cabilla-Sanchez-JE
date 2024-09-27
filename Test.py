@@ -36,6 +36,11 @@ class TransportTest(unittest.TestCase):
         # Complete this test of the total fare method from the Transport class
         # Add a few more assertEquals
         self.assertEqual(1, 1)
+        self.transport.add("Student")
+        self.transport.add("Regular")
+        self.transport.add("Senior")
+        totalExpected = 18 + 20 + 13
+        self.assertEqual(totalExpected, 51)
         pass
 
     def test_print(self):
